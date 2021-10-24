@@ -1,5 +1,6 @@
 package com.marysugar.github_api_app_with_compose.model.repository
 
+import android.util.Log
 import com.marysugar.github_api_app_with_compose.model.remote_data_source.GithubUser
 import com.marysugar.github_api_app_with_compose.model.remote_data_source.RemoteDataSource
 import javax.inject.Inject
@@ -11,6 +12,7 @@ class UserRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
 ): UserRepository {
     override suspend fun getUser(userName: String): User {
+        Log.d("サーチクエリ",userName)
         return remoteDataSource.getGithubUser(userName = userName).toUser()
     }
 }
@@ -19,6 +21,7 @@ class UserRepositoryImpl @Inject constructor(
  * [GithubUser]を[User]に変換する拡張関数
  */
 private fun GithubUser.toUser(): User {
+    Log.d("aaa", "ddd")
     return User(
         userId = UserId(value = id),
         name = name,

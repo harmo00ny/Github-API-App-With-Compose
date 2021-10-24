@@ -1,5 +1,6 @@
 package com.marysugar.github_api_app_with_compose.model.remote_data_source
 
+import android.util.Log
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json

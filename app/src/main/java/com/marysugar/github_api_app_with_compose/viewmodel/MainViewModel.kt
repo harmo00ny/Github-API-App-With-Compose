@@ -1,5 +1,6 @@
 package com.marysugar.github_api_app_with_compose.viewmodel
 
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

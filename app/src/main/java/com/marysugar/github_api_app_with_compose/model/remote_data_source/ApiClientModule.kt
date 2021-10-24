@@ -1,5 +1,6 @@
 package com.marysugar.github_api_app_with_compose.model.remote_data_source
 
+import android.util.Log
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +16,7 @@ import javax.inject.Singleton
 class ApiClientModule {
 
     /**
-     * [ApiClient]のDIに用いられるインスタンスを生成
+     * [ApiClient]のDIに用いられるインスタンスを生成して返す
      */
     @ExperimentalSerializationApi
     @Provides
