@@ -1,6 +1,6 @@
 package com.marysugar.github_api_app_with_compose.model.remote_data_source
 
-import android.util.Log
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -10,9 +10,8 @@ class RemoteDataSourceImpl @Inject constructor(
     private val apiClient: ApiClient,
 ): RemoteDataSource {
     override suspend fun getGithubUser(userName: String): GithubUser {
-        Log.d("ユーザー","データ")
         val response = apiClient.getGithubUser(userName = userName)
-        Log.d("レスポンス","帰ってきた?")
+        Timber.d(response.toString())
         if (response.isSuccessful) {
             return requireNotNull(response.body())
         }

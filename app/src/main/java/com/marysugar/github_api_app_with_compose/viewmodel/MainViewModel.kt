@@ -1,6 +1,5 @@
 package com.marysugar.github_api_app_with_compose.viewmodel
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -9,6 +8,7 @@ import com.marysugar.github_api_app_with_compose.model.repository.User
 import com.marysugar.github_api_app_with_compose.model.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -66,8 +66,10 @@ class MainViewModel @Inject constructor(
             kotlin.runCatching {
                 userRepository.getUser(userName = searchQuery)
             }.onSuccess {
+                Timber.d(it.toString())
                 uiState.value = UiState.Success(user = it)
             }.onFailure {
+                Timber.d(it.toString())
                 uiState.value = UiState.Failure
             }
         }
